@@ -34,6 +34,7 @@ COPY --from=installer /app/apps/web/next.config.js .
 COPY --from=installer /app/apps/web/package.json .
 
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next ./apps/web/.next
- 
-CMD node apps/web/server.js
+
+EXPOSE 8080
+CMD [ "node", "apps/web/server.js" ]
 
