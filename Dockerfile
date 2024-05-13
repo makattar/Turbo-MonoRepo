@@ -29,12 +29,13 @@ WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
-
+ 
 COPY --from=installer /app/apps/web/next.config.js .
 COPY --from=installer /app/apps/web/package.json .
 
-COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next ./apps/web/.next
-
-EXPOSE 8080
-CMD [ "node", "apps/web/server.js" ]
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
+ 
+CMD node apps/web/server.js
 
