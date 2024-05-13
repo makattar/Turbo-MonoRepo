@@ -21,7 +21,7 @@ RUN npm install
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
-RUN npm turbo build --filter=web...
+RUN npx turbo build --filter=web...
 
 FROM base AS runner
 WORKDIR /app
