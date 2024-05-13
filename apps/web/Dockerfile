@@ -19,7 +19,7 @@ COPY --from=builder /app/out/package-lock.json ./package-lock.json
 RUN npm install
 
 COPY --from=builder /app/out/full/ .
-COPY ../turbo.json turbo.json
+COPY ../../turbo.json turbo.json
 
 RUN npx turbo build --filter=web...
 
