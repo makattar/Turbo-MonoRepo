@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
-COPY --from=builder /app/out/package.lock.json ./package.lock.json
+COPY --from=builder /app/out/package-lock.json ./package-lock.json
 RUN npm install
 
 COPY --from=builder /app/out/full/ .
