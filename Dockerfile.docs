@@ -21,6 +21,9 @@ RUN npm ci
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
+ARG NEXT_PUBLIC_FROM_DOCS_ENV=${NEXT_PUBLIC_FROM_DOCS_ENV}
+ENV NEXT_PUBLIC_FROM_DOCS_ENV ${NEXT_PUBLIC_FROM_DOCS_ENV}
+
 RUN npx turbo build --filter=docs...
 
 FROM base AS runner

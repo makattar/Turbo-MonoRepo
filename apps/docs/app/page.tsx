@@ -132,6 +132,10 @@ export default function Page(): JSX.Element {
         </div>
       </div>
 
+      <div>Process Env Variables</div>
+      <div>NEXT_PUBLIC_FROM_DOCS_ENV : {process.env.NEXT_PUBLIC_FROM_DOCS_ENV}</div>
+      <br></br>
+      
       <div className={styles.grid}>
         {LINKS.map(({ title, href, description }) => (
           <Card className={styles.card} href={href} key={title} title={title}>

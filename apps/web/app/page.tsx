@@ -134,7 +134,7 @@ export default function Page(): JSX.Element {
       </div>
 
       <div>Process Env Variables</div>
-      <div>NEXT_PUBLIC_DATABASE_URL : {process.env.NEXT_PUBLIC_DATABASE_URL}</div>
+      <div>NEXT_PUBLIC_FROM_WEB_ENV : {process.env.NEXT_PUBLIC_FROM_WEB_ENV}</div>
       <br></br>
       <div className={styles.grid}>
         {LINKS.map(({ title, href, description }) => (
