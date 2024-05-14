@@ -21,6 +21,9 @@ RUN npm ci
 COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
+ARG NEXT_PUBLIC_DATABASE_URL=${NEXT_PUBLIC_DATABASE_URL}
+ENV NEXT_PUBLIC_DATABASE_URL ${NEXT_PUBLIC_DATABASE_URL}
+
 RUN npx turbo build --filter=web...
 
 FROM base AS runner
