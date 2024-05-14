@@ -52,6 +52,7 @@ const LINKS = [
 ];
 
 export default function Page(): JSX.Element {
+  console.log("Env Variable : ",process.env.NEXT_PUBLIC_DATABASE_URL);
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -132,6 +133,9 @@ export default function Page(): JSX.Element {
         </div>
       </div>
 
+      <div>Process Env Variables</div>
+      <div>NEXT_PUBLIC_DATABASE_URL : {process.env.NEXT_PUBLIC_DATABASE_URL}</div>
+      <br></br>
       <div className={styles.grid}>
         {LINKS.map(({ title, href, description }) => (
           <Card className={styles.card} href={href} key={title} title={title}>
