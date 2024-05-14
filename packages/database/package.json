@@ -2,7 +2,6 @@
   "name": "@repo/database",
   "version": "0.0.0",
   "scripts": {
-    "postinstall": "npm run db:migrate && npm run db:generate",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy"
   },

@@ -26,6 +26,8 @@ ARG DATABASE_URL=${DATABASE_URL}
 ENV NEXT_PUBLIC_FROM_WEB_ENV ${NEXT_PUBLIC_FROM_WEB_ENV}
 ENV DATABASE_URL ${DATABASE_URL}
 
+RUN npx turbo db:migrate
+RUN npx turbo db:generate
 RUN npx turbo build --filter=web...
 
 FROM base AS runner
