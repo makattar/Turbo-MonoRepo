@@ -22,7 +22,9 @@ COPY --from=builder /app/out/full/ .
 COPY turbo.json turbo.json
 
 ARG NEXT_PUBLIC_FROM_DOCS_ENV=${NEXT_PUBLIC_FROM_DOCS_ENV}
+ARG DATABASE_URL=${DATABASE_URL}
 ENV NEXT_PUBLIC_FROM_DOCS_ENV ${NEXT_PUBLIC_FROM_DOCS_ENV}
+ENV DATABASE_URL ${DATABASE_URL}
 
 RUN npx turbo build --filter=docs...
 
